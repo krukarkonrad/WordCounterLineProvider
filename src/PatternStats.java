@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatternStats {
+public class PatternStats implements Comparable<PatternStats>{
     private String word;
     private int amountOfAppearances = 1;
     private List<Integer> linesContains = new ArrayList<>();
@@ -14,24 +14,12 @@ public class PatternStats {
         return word;
     }
 
-    public void setWord(String word) {
-        this.word = word;
-    }
-
     public int getAmountOfAppearances() {
         return amountOfAppearances;
     }
 
-    public void setAmountOfAppearances(int amountOfAppearances) {
-        this.amountOfAppearances = amountOfAppearances;
-    }
-
     public List<Integer> getLinesContains() {
         return linesContains;
-    }
-
-    public void setLinesContains(List<Integer> linesContains) {
-        this.linesContains = linesContains;
     }
 
     public void increaseAOA(){
@@ -40,5 +28,13 @@ public class PatternStats {
 
     public void addLineToList(int lineNO){
         this.linesContains.add(lineNO);
+    }
+
+    @Override
+    public int compareTo(PatternStats o) {
+        int compareInt = this.word.toLowerCase().compareTo(o.word.toLowerCase());
+        if(compareInt < 0) return -1;
+        if(compareInt > 0) return  1;
+        return 0;
     }
 }

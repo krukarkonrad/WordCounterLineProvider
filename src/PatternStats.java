@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PatternStats {
     private String word;
-    private int amountOfAppearances = 0;
+    private int amountOfAppearances = 1;
     private List<Integer> linesContains = new ArrayList<>();
 
     public PatternStats(String word){
@@ -32,5 +32,13 @@ public class PatternStats {
 
     public void setLinesContains(List<Integer> linesContains) {
         this.linesContains = linesContains;
+    }
+
+    public void increaseAOA(){
+        this.amountOfAppearances++;
+    }
+
+    public void addLineToList(int lineNO){
+        this.linesContains.add(lineNO);
     }
 }

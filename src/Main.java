@@ -1,20 +1,16 @@
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Scanner;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         final String filePatch = "C:\\vaTast\\src\\zadanie.txt";
-        try {
-            FileInputStream fis = new FileInputStream(filePatch);
-            Scanner sc = new Scanner(fis);
-            while (sc.hasNextLine()){
-                System.out.println(sc.nextLine());
-            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        WordListing wl = new WordListing();
+        List<PatternStats> toPrint = wl.listWords(filePatch);
+        for (PatternStats each : toPrint){
+            System.out.println(each.getWord() + " - " +
+                    each.getAmountOfAppearances() + " - pozycje - > " +
+                    each.getLinesContains());
         }
     }
 }

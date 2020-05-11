@@ -22,7 +22,7 @@ public class WordListing {
             while (sc.hasNextLine()) {
                 lineCounter++;
                 List<String> tempLine = loadLineToList(sc, regex);
-
+                //String[] tempLine = sc.nextLine().split("[\\pP\\s&&[^']]+");
                 for (String each : tempLine) {
                     int tempIndex = checkIfExist(each);
 

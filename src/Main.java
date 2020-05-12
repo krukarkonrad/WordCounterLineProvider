@@ -12,5 +12,13 @@ public class Main {
                     each.getAmountOfAppearances() + " - pozycje - > " +
                     each.getLinesContains());
         }
+
+        WordListingWithMap wlwm = new WordListingWithMap();
+        toPrint = wlwm.listWords(filePatch);
+        for (PatternStats each : toPrint){
+            System.out.println(each.getWord() + " - " +
+                    each.getAmountOfAppearances() + " - pozycje - > " +
+                    each.getLinesContains());
+        }
     }
 }

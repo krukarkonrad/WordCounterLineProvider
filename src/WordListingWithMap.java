@@ -19,7 +19,7 @@ public class WordListingWithMap {
             while (sc.hasNextLine()) {
                 lineCounter++;
                 List<String> tempLine = loadLineToList(sc, regex);
-                //String[] tempLine = sc.nextLine().split("[\\pP\\s&&[^']]+");
+                // String[] tempLine = sc.nextLine().split("[\\pP\\s&&[^']]+");
                 for (String each : tempLine) {
                     if (patternStatsMap.containsKey(each)) {
                         increaseExist(each, lineCounter);

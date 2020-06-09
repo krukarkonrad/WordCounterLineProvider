@@ -1,12 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class PatternStats implements Comparable<PatternStats>{
     private String word;
-    private int amountOfAppearances = 1;
-    private List<Integer> linesContains = new ArrayList<>();
+    private int amountOfAppearances;
+    private SortedSet<Integer> linesContains;
 
     public PatternStats(String word){
+        this.amountOfAppearances = 1;
+        this.linesContains = new TreeSet<>();
         this.word = word;
     }
 
@@ -18,7 +22,7 @@ public class PatternStats implements Comparable<PatternStats>{
         return amountOfAppearances;
     }
 
-    public List<Integer> getLinesContains() {
+    public SortedSet<Integer> getLinesContains() {
         return linesContains;
     }
 
@@ -32,9 +36,13 @@ public class PatternStats implements Comparable<PatternStats>{
 
     @Override
     public int compareTo(PatternStats o) {
-        int compareInt = this.word.toLowerCase().compareTo(o.word.toLowerCase());
-        if(compareInt < 0) return -1;
-        if(compareInt > 0) return  1;
-        return 0;
+        return word.compareToIgnoreCase(o.word);
+    }
+
+    @Override
+    public String toString(){
+        return (word + " - "
+                + amountOfAppearances
+                + " - pozycje - > " + linesContains);
     }
 }
